@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 
 //Rotas
 const index = require('./routes/index');
-const personRoute = require('./routes/personRoute');
+const personRoute = require('./routes/mongoRoute');
 app.use('/', index);
 app.use('/persons', personRoute);
 
