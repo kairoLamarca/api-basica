@@ -1,5 +1,5 @@
 exports.post = (req, res, next) => {
-    res.status(201).send('Requisição recebida com sucesso!');
+    res.status(201).send('Requisição recebida com sucesso!' + req.body.teste);
 };
 
 exports.put = (req, res, next) => {
