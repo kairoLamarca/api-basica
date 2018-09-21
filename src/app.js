@@ -18,9 +18,9 @@ app.use((req, res, next) => {
 
 //Rotas
 const index = require('./routes/index');
-const personRoute = require('./routes/mongoRoute');
+const mongoRoute = require('./routes/mongoRoute');
 app.use('/', index);
-app.use('/persons', personRoute);
+app.use('/mongo', mongoRoute);
 
 /* middleware que configura páginas de status */
 app.use((req, res, next) => {
