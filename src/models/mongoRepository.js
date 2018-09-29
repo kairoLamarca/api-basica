@@ -10,3 +10,11 @@ exports.post = async (dados) => {
     return usuario
 }
 
+exports.getAll = async () => {
+    //Abre a conexão
+    await mongo();
+
+    const usuarios = await Usuario.find();
+
+    return usuarios;
+}

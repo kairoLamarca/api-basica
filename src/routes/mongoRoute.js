@@ -7,7 +7,7 @@ const controller = require('../controllers/mongoController');
 // router.delete('/:id', controller.delete);
 
 router.route('/')
-    .get(controller.get)
+    .get(controller.getAll)
     .post(controller.post)
 
 router.route('/:id')
