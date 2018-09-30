@@ -37,12 +37,29 @@ exports.post = async (req, res, next) => {
     }
 };
 
-exports.put = (req, res, next) => {
-    let id = req.params.id;
-    res.status(201).send(`Requisição recebida com sucesso! ${id}`);
+exports.put = async (req, res, next) => {
+    try {
+        let id = req.params.id;
+        let dados = req.body;
+
+        const result = await mongo.put(id, dados);
+
+        res.status(201).json(result);
+    }
+    catch (error) {
+        res.status(500).json(error);
+    }
 };
 
-exports.delete = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Requisição recebida com sucesso! ${id}`);
+exports.delete = async (req, res, next) => {
+    try {
+        let id = req.params.id;
+
+        const result = await mongo.delete(id);
+
+        res.status(201).json(result);
+    }
+    catch (error) {
+        res.status(500).json(error);
+    }
 }

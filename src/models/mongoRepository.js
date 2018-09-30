@@ -28,3 +28,21 @@ exports.post = async (dados) => {
     return usuario
 }
 
+exports.put = async (id, dados) => {
+    //Abre a conexão
+    await mongo();
+
+    const result = await Usuario.findByIdAndUpdate(id, dados, { new: true });
+
+    return result;
+}
+
+exports.delete = async (id) => {
+    //Abre a conexão
+    await mongo();
+
+    const result = await Usuario.findByIdAndRemove(id);
+
+    return result;
+}
+
