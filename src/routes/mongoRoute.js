@@ -11,6 +11,7 @@ router.route('/')
     .post(controller.post)
 
 router.route('/:id')
+    .get(controller.getById)
     .put(controller.put)
     .delete(controller.delete)
 

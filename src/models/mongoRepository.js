@@ -1,13 +1,13 @@
 const mongo = require('../config/mongoConnection');
 const Usuario = require('./mongoModels/usuarioModel');
 
-exports.post = async (dados) => {
+exports.getById = async (id) => {
     //Abre a conexão
-    const db = await mongo();
+    await mongo();
 
-    let usuario = new Usuario(dados);
-    await usuario.save();
-    return usuario
+    const usuario = await Usuario.findById(id);
+
+    return usuario;
 }
 
 exports.getAll = async () => {
@@ -18,3 +18,13 @@ exports.getAll = async () => {
 
     return usuarios;
 }
+
+exports.post = async (dados) => {
+    //Abre a conexão
+    await mongo();
+
+    let usuario = new Usuario(dados);
+    await usuario.save();
+    return usuario
+}
+
