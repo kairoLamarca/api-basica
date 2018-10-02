@@ -25,7 +25,7 @@ app.use('/mongo', mongoRoute);
 
 /* middleware que configura páginas de status */
 app.use((req, res, next) => {
-    res.status(404).send('Recurso não encontrada');//Envia isso quando der status 404
+    res.status(404).send('Recurso não encontrado');//Envia isso quando der status 404
     next();
 })
 
