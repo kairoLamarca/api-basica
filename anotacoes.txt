@@ -1,0 +1,21 @@
+#### MySql ####
+
+senha MySql: 1234
+
+create database mysql_api;
+
+create table usuario (
+	
+codigo int,
+    
+nome varchar(100),
+    
+senha varchar(100),
+    
+email varchar(100)    
+
+);
+
+select * from usuario;
+
+insert into usuario values (1, "teste", "1234", "teste@teste.com");
