@@ -20,8 +20,10 @@ app.use((req, res, next) => {
 //Rotas
 const index = require('./routes/index');
 const mongoRoute = require('./routes/mongoRoute');
+const mysqlRoute = require('./routes/mySqlRoute');
 app.use('/', index);
 app.use('/mongo', mongoRoute);
+app.use('/mysql', mysqlRoute);
 
 /* middleware que configura páginas de status */
 app.use((req, res, next) => {
