@@ -4,18 +4,18 @@ senha MySql: 1234
 
 create database mysql_api;
 
-create table usuario (
-	
-codigo int,
-    
-nome varchar(100),
-    
-senha varchar(100),
-    
-email varchar(100)    
-
+create table usuarios (
+id int not null primary key auto_increment,
+nome varchar(100), 
+senha varchar(100),  
+email varchar(100)
 );
 
-select * from usuario;
+select * from usuarios;
 
-insert into usuario values (1, "teste", "1234", "teste@teste.com");
+insert into usuarios (nome, senha, email) values ("teste", "1234", "teste@teste.com");
+
+insert into usuarios (nome, senha, email) values ("teste2", "1234", "teste2@teste.com");
+
+--Rodar esse comando para aceitar conexão com senha
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'

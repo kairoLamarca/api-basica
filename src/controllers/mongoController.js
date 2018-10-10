@@ -3,7 +3,7 @@ const mongo = require('../models/mongoRepository');
 exports.getById = async (req, res) => {
     try {
         const id = req.params.id;
-        console.log(id);
+        
         const result = await mongo.getById(id);
 
         res.status(200).json(result);
