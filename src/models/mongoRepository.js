@@ -26,6 +26,13 @@ exports.post = async (dados) => {
     let usuario = new Usuario(dados);
     await usuario.save();
     return usuario
+
+    // Exemplo de JSON de envio
+    // {
+    //     "usuario": "Kairo",
+    //     "email": "kairo@teste.com",
+    //     "senha": "abc"
+    // }
 }
 
 exports.put = async (id, dados) => {

@@ -18,3 +18,18 @@ exports.getAll = async () => {
     return results;
 }
 
+exports.post = async (dados) => {
+    //abre conexão
+    const connection = await mysql();
+
+    const [results] = await connection.query('insert into usuarios set ?', dados);
+
+    return results;
+
+    // Exemplo de JSON de envio
+    // {
+    //     "nome": "teste3",
+    //     "senha": "1234",
+    //     "email": "teste3@teste.com"
+    // }
+}
