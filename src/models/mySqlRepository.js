@@ -33,3 +33,19 @@ exports.post = async (dados) => {
     //     "email": "teste3@teste.com"
     // }
 }
+
+exports.put = async (id, dados) => {
+    //abre conexão
+    const connection = await mysql();
+
+    const [results] = await connection.query('update usuarios set nome = ?, email = ?, senha = ? where id = ?', [dados.nome, dados.email, dados.senha, id]);
+
+    return results;
+
+    // Exemplo de JSON de envio
+    // {
+    //     "nome": "teste3",
+    //     "senha": "1234",
+    //     "email": "teste3@teste.com"
+    // }
+}

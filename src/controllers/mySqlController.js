@@ -36,3 +36,17 @@ exports.post = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+exports.put = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const dados = req.body;
+
+        const result = await mysql.put(id, dados);
+
+        res.status(200).json(result);
+    }
+    catch (error) {
+        res.status(500).json(error);
+    }
+}
