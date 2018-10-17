@@ -19,3 +19,22 @@ insert into usuarios (nome, senha, email) values ("teste2", "1234", "teste2@test
 
 --Rodar esse comando para aceitar conexão com senha
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
+
+#### Sql Server ####
+
+create DATABASE api_sql_server
+
+use api_sql_server
+
+create table usuarios (
+    id int not null primary key identity,
+    nome varchar(100), 
+    senha varchar(100),  
+    email varchar(100)
+);
+
+select * from usuarios
+
+insert into usuarios (nome, senha, email) values ('teste', '1234', 'teste@teste.com')
+
+insert into usuarios (nome, senha, email) values ('teste2', '1234', 'teste2@teste.com')
