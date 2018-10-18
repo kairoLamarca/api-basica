@@ -33,10 +33,4 @@ app.use((req, res, next) => {
     next();
 })
 
-/* middleware que configura msg de erro internos*/
-app.use((err, req, res, next) => {
-    res.status(500).json({'mensagem': 'Ocorreu um erro interno, tente novamente'});
-    next();
-})
-
 module.exports = app;

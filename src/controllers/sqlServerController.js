@@ -6,7 +6,12 @@ exports.getById = async (req, res) => {
 
         const result = await sql.getById(id);
 
-        res.status(200).json(result);
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).json(result.recordset[0]);
+        }
+        else {
+            res.status(404).json({ 'mensagem': 'Id não encontrado' });
+        }
     }
     catch (error) {
         res.status(500).json(error);

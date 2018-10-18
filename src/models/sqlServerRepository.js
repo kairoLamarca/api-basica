@@ -9,8 +9,8 @@ exports.getById = async (id) => {
 
     //fecha a conexão
     sql.close();
-
-    return result.recordset[0];
+    
+    return result;
 }
 
 exports.getAll = async () => {
