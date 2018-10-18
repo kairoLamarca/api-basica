@@ -22,7 +22,7 @@ exports.getAll = async () => {
     //fecha a conexão
     sql.close();
 
-    return results.recordset;
+    return results;
 }
 
 exports.post = async (dados) => {

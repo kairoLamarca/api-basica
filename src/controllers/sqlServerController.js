@@ -10,7 +10,7 @@ exports.getById = async (req, res) => {
             res.status(200).json(result.recordset[0]);
         }
         else {
-            res.status(404).json({ 'mensagem': 'Id não encontrado' });
+            res.status(404).json({ 'mensagem': 'Nenhum registro foi encontrado' });
         }
     }
     catch (error) {
@@ -22,7 +22,12 @@ exports.getAll = async (req, res) => {
     try {
         const result = await sql.getAll();
 
-        res.status(200).json(result);
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).json(result.recordset);
+        }
+        else {
+            res.status(404).json({ 'mensagem': 'Nenhum registro foi encontrado' });
+        }
     }
     catch (error) {
         res.status(500).json(error);
