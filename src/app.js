@@ -29,13 +29,13 @@ app.use('/sqlserver', sqlServerRoute);
 
 /* middleware que configura páginas de status */
 app.use((req, res, next) => {
-    res.status(404).send('Recurso não encontrado');//Envia isso quando der status 404
+    res.status(404).json({'mensagem': 'Recurso não encontrado'});//Envia isso quando der status 404
     next();
 })
 
 /* middleware que configura msg de erro internos*/
 app.use((err, req, res, next) => {
-    res.status(500).send('Ocorreu um erro interno, tente novamente');
+    res.status(500).json({'mensagem': 'Ocorreu um erro interno, tente novamente'});
     next();
 })
 
