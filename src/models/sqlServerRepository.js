@@ -49,7 +49,7 @@ exports.put = async (id, dados) => {
         .input('nome', sql.VarChar, dados.nome)
         .input('senha', sql.VarChar, dados.senha)
         .input('email', sql.VarChar, dados.email)
-        .input('id', sql.VarChar, id)
+        .input('id', sql.Int, id)
         .query('update usuarios set nome = @nome, senha = @senha, email = @email where id = @id');
 
     //fecha a conexão
@@ -61,4 +61,13 @@ exports.put = async (id, dados) => {
 exports.delete = async (id) => {
     //abre a conexão
     const connection = await conn();
+
+    const result = await connection.request()
+        .input('id', sql.Int, id)
+        .query('delete from usuarios where id = @id');
+
+    //fecha a conexão
+    sql.close()
+
+    return result;
 }

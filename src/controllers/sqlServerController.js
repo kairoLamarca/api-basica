@@ -50,3 +50,16 @@ exports.put = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+exports.delete = async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const result = await sql.delete(id);
+
+        res.status(200).json(result);
+    }
+    catch (error) {
+        res.status(500).json(error);
+    }
+}
