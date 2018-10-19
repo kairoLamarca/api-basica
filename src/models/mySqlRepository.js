@@ -6,6 +6,8 @@ exports.getById = async (id) => {
 
     const [results] = await connection.query('select * from usuarios where id = ?', [id]);
 
+    connection.end();
+
     return results;
 }
 
@@ -15,6 +17,8 @@ exports.getAll = async () => {
 
     const [results] = await connection.query('select * from usuarios;');
 
+    connection.end();
+
     return results;
 }
 
@@ -23,6 +27,8 @@ exports.post = async (dados) => {
     const connection = await mysql();
 
     const [results] = await connection.query('insert into usuarios set ?', dados);
+
+    connection.end();
 
     return results; //results.insertId
 
@@ -40,6 +46,8 @@ exports.put = async (id, dados) => {
 
     const [results] = await connection.query('update usuarios set nome = ?, email = ?, senha = ? where id = ?', [dados.nome, dados.email, dados.senha, id]);
 
+    connection.end();
+
     return results; //results.affectedRows
 
     // Exemplo de JSON de envio
@@ -56,5 +64,7 @@ exports.delete = async (id) => {
 
     const [results] = await connection.query('delete from usuarios where id = ?', [id]);
 
+    connection.end();
+    
     return results; //results.affectedRows
 }
