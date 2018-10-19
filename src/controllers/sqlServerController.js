@@ -40,7 +40,12 @@ exports.post = async (req, res) => {
 
         const result = await sql.post(dados);
 
-        res.status(200).json(result);
+        if (result.rowsAffected[0] > 0) {
+            res.status(201).json({ 'mensagem': `${result.rowsAffected[0]} registro(s) inserido(s) com sucesso` });
+        }
+        else {
+            res.status(404).json({ 'mensagem': 'Nenhum registro foi inserido' });
+        }
     }
     catch (error) {
         res.status(500).json(error);
@@ -54,7 +59,12 @@ exports.put = async (req, res) => {
 
         const result = await sql.put(id, dados);
 
-        res.status(200).json(result);
+        if (result.rowsAffected[0] > 0) {
+            res.status(204).json({ 'mensagem': `${result.rowsAffected[0]} registro(s) alterado(s) com sucesso` });
+        }
+        else {
+            res.status(404).json({ 'mensagem': 'Nenhum registro foi alterado' });
+        }
     }
     catch (error) {
         res.status(500).json(error);
@@ -67,7 +77,12 @@ exports.delete = async (req, res) => {
 
         const result = await sql.delete(id);
 
-        res.status(200).json(result);
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).json({ 'mensagem': `${result.rowsAffected[0]} registro(s) excluído(s) com sucesso` });
+        }
+        else {
+            res.status(404).json({ 'mensagem': 'Nenhum registro foi excluído' });
+        }
     }
     catch (error) {
         res.status(500).json(error);
