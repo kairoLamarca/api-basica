@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");//permite acesso para qualquer aplicação(dominio)
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");//Configurar metodos que a origem pode requisitar
-    res.setHeader("Access-Control-Allow-Headers", "content-type");//Habilitar que a req da origem tenha cabeçalhos reescritos
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");//Habilitar que a req da origem tenha cabeçalhos reescritos
     res.setHeader("Access-Control-Allow-Credentials", true);//
 
     next();
